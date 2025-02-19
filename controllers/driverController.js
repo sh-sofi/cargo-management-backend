@@ -37,7 +37,12 @@ export const addDriver = async (req, res) => {
     return res.status(400).json({ message: "All fields are required" });
   }
 
-  const newDriver = new Driver({ lastName, firstName, middleName, experience });
+  const newDriver = new Driver({
+    lastName,
+    firstName,
+    middleName,
+    experience,
+  });
 
   try {
     await newDriver.save();
@@ -47,6 +52,7 @@ export const addDriver = async (req, res) => {
       message:
         "The request was not completed. The server met an unexpected condition",
     });
+    console.log(err);
   }
 };
 

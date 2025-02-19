@@ -6,14 +6,17 @@ const completedWorkSchema = new mongoose.Schema({
     ref: "Route",
     required: true,
   },
-  driver: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Driver",
-    required: true,
-  },
-  departureDate: { type: Date, required: true }, // Дата відправлення
-  returnDate: { type: Date, required: true }, // Дата повернення
-  bonus: { type: Number, required: true }, // Премія
+  drivers: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Driver",
+      required: true,
+    },
+  ],
+  departureDate: { type: Date, required: true },
+  returnDate: { type: Date, required: true },
+  paymentBonus: { type: Number, default: 0 },
+  finalSum: { type: Number, required: true },
 });
 
 export default mongoose.model("CompletedWork", completedWorkSchema);
