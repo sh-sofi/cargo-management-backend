@@ -16,7 +16,12 @@ const completedWorkSchema = new mongoose.Schema({
   departureDate: { type: Date, required: true },
   returnDate: { type: Date, required: true },
   paymentBonus: { type: Number, default: 0 },
-  finalSum: { type: Number, required: true },
+  finalSums: [
+    {
+      type: Number,
+      required: true
+    }
+  ],
 });
 
 export default mongoose.model("CompletedWork", completedWorkSchema);

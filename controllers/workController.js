@@ -33,10 +33,10 @@ export const getCompletedWorkById = async (req, res) => {
 };
 
 export const addCompletedWork = async (req, res) => {
-  const { route, drivers, departureDate, returnDate, paymentBonus, finalSum } =
+  const { route, drivers, departureDate, returnDate, paymentBonus, finalSums } =
     req.body;
 
-  if (!route || !drivers || !departureDate || !returnDate || !finalSum) {
+  if (!route || !drivers || !departureDate || !returnDate || !finalSums) {
     return res
       .status(400)
       .json({ message: "All required fields must be provided" });
@@ -48,7 +48,7 @@ export const addCompletedWork = async (req, res) => {
     departureDate,
     returnDate,
     paymentBonus: paymentBonus || 0,
-    finalSum,
+    finalSums,
   });
 
   try {
@@ -64,13 +64,13 @@ export const addCompletedWork = async (req, res) => {
 
 export const updateCompletedWork = async (req, res) => {
   const { id } = req.params;
-  const { route, drivers, departureDate, returnDate, paymentBonus, finalSum } =
+  const { route, drivers, departureDate, returnDate, paymentBonus, finalSums } =
     req.body;
 
   try {
     const updatedCompletedWork = await CompletedWork.findByIdAndUpdate(
       id,
-      { route, drivers, departureDate, returnDate, paymentBonus, finalSum },
+      { route, drivers, departureDate, returnDate, paymentBonus, finalSums },
       { new: true }
     ).populate("route drivers");
 
