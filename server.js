@@ -5,9 +5,17 @@ import drivers from "./routes/drivers.js";
 import routes from "./routes/routes.js";
 import works from "./routes/works.js";
 
+import cors from "cors";
+
 const app = express();
 
 app.use(express.json());
+
+app.use(
+  cors({
+    origin: "http://localhost:4200",
+  })
+);
 
 const PORT = 3000;
 
