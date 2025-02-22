@@ -1,14 +1,14 @@
 import express from "express";
-import "./config/db.js";
+import "./src/config/db.js";
 import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
 
-import drivers from "./routes/drivers.js";
-import routes from "./routes/routes.js";
-import works from "./routes/works.js";
-import authRoutes from "./routes/auth.routes.js";
-import userRoutes from "./routes/user.routes.js";
+import drivers from "./src/routes/drivers.js";
+import routes from "./src/routes/routes.js";
+import works from "./src/routes/works.js";
+import authRoutes from "./src/routes/auth.routes.js";
+import userRoutes from "./src/routes/user.routes.js";
 
 const PORT = 3000;
 
