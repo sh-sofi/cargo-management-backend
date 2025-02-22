@@ -1,9 +1,11 @@
 import mongoose from "mongoose";
 import configuration from "./configuration.js";
 
-const URI = configuration.mongoUri;
+export const MONGO_URI = configuration.MONGO_URI;
+export const JWT_SECRET = configuration.JWT_SECRET;
+export const PORT = configuration.PORT;
 
 mongoose
-  .connect(URI)
+  .connect(MONGO_URI)
   .then(() => console.log("Connected to MongoDB"))
   .catch((e) => console.error("Connection error:", e));
