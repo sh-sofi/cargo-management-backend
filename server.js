@@ -3,6 +3,7 @@ import "./src/config/db.js";
 import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
+import { swaggerUi, swaggerDocs } from "./src/config/swagger.js";
 
 import drivers from "./src/routes/drivers.js";
 import routes from "./src/routes/routes.js";
@@ -15,6 +16,10 @@ const PORT = 3000;
 const app = express();
 
 app.use(express.json());
+
+console.log(swaggerDocs);
+
+app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 app.use(
   cors({
