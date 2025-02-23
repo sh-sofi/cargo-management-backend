@@ -19,6 +19,6 @@ const swaggerOptions = {
 };
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
-console.log(JSON.stringify(swaggerDocs, null, 2));
+//console.log(JSON.stringify(swaggerDocs, null, 2));
 
 export { swaggerUi, swaggerDocs };
