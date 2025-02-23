@@ -9,8 +9,8 @@
     "dev": "nodemon server.js"
   },
   "author": "sh-sofi",
-  "license": "ISC",
-  "description": "",
+  "license": "MIT",
+  "description": "Cargo Management API",
   "dependencies": {
     "bcrypt": "^5.1.1",
     "bcryptjs": "^3.0.2",
